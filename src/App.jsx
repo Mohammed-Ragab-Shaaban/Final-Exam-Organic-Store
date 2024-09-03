@@ -1,11 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './Pages/HomePage/HomePage'
+import Header from './Pages/Components/Header/Header'
 
 export default function App() {
   return (
     <div>
       <BrowserRouter>
+      <Header />
           <Routes>
             <Route path='/'>
               <Route index element={<HomePage />}></Route>
