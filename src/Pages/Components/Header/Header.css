@@ -4,6 +4,9 @@
     --lightBgGreen:#f6ffec;
     --lightGreen:#8bc34a;
     --lightGray:#f6f6f6;
+    --bgGreen :#6a9739 ;
+    --bgGreenDark :#5a8b25 ;
+    --white : #fff;
 }
 
 .headerMenu{
@@ -50,4 +53,33 @@ a{
         background-color: var(--lightBgGreen)
     }
 }
+
+
+.shopnowBtn{
+    padding: 15px 30px;
+    background-color: var(--bgGreen);
+    color: var(--white);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.shopnowBtn:hover{
+background-color: var(--bgGreenDark);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
