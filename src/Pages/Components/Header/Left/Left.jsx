@@ -5,7 +5,7 @@ export default function Left() {
   return (
     <div className="d-flex align-items-center">
       <Logo /> 
-      <MenuLeft />
+      <MenuLeft  cc = "d-none" />
     </div>
   )
 }

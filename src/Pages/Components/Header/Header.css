@@ -1,12 +1,13 @@
 
 :root{
     --textColor : #333333;
+    --lightBgGreen:#f6ffec;
     --lightGreen:#8bc34a;
+    --lightGray:#f6f6f6;
 }
 
 .headerMenu{
     list-style-type: none;
-    display: flex;
     margin: 0px;
     padding: 0px;
 }
@@ -22,11 +23,31 @@
 }
 
 
+/* start the side Menue */
+.sideMenue{
+    width: 250px;
+    height: 100vh;
+    position: absolute;
+    top: 50px;
+    transition: all .5s;
+    background-color: var(--lightGray);
+}
 
 
+/*End the side Menue */
+
+a{
+    display: inline-block;
+}
 
 
+@media only screen and (max-width: 767px){
+    .headerMenu li {
+        border-bottom: 1px solid #ddd;
+    }
 
-
-
+    .headerMenu li:hover{
+        background-color: var(--lightBgGreen)
+    }
+}
 
