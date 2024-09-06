@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './Pages/HomePage/HomePage'
 import Header from './Pages/Components/Header/Header'
 import { HeaderStateProviderContext } from './Pages/Components/Context'
+import EveryThing from './Pages/EveryThing/EveryThing'
+import SingleProduct from './Pages/Components/SingleProduct'
 
 export default function App() {
   return (
@@ -14,7 +16,14 @@ export default function App() {
           <Routes>
             <Route path='/'>
               <Route index element={<HomePage />}></Route>
-            <Route path='/everything' element={<h1>Every Thing</h1>}></Route>
+
+            <Route path='/everything' >
+              <Route index element={<EveryThing />}></Route>
+
+              <Route path=':id' element={<SingleProduct />}></Route>
+              
+            </Route>
+
             <Route path='/groceries' element={<h1>Groceries</h1>}></Route>
             <Route path='/juice' element={<h1>Juice</h1>}></Route>
             <Route path='/about' element={<h1>About</h1>}></Route>

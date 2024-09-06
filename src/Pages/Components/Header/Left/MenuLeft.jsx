@@ -9,10 +9,10 @@ export default function MenuLeft(props) {
 
   return (
     <div className={sideList ? props.cc +" d-md-block" : "d-none d-md-block"}>
-        <ul className="headerMenu d-md-flex">
-            <li><Link className="py-3 p-md-0 " to={'#'}>Everything</Link></li>
-            <li><Link className="py-3 p-md-0 " to={'#'}>Groceries</Link></li>
-            <li><Link className="py-3 p-md-0 " to={'#'}>Juice</Link></li>
+        <ul className="headerMenu d-md-flex gap-3">
+            <li><Link className="py-3 p-md-0 " to={'/everything'}>Everything</Link></li>
+            <li><Link className="py-3 p-md-0 " to={'/groceries'}>Groceries</Link></li>
+            <li><Link className="py-3 p-md-0 " to={'/juice'}>Juice</Link></li>
         </ul>
     </div>
   )
