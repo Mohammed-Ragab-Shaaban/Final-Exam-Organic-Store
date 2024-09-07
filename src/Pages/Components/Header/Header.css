@@ -72,10 +72,21 @@ a{
 background-color: var(--bgGreenDark);
 }
 
+.btnsty{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0px 2px;
+}
 
+.btnsty:hover{
+    background-color: var(--bgGreen);
+    color: var(--white);
+  
+}
+.btnsty:hover a{
+    color: var(--white);
 
-
-
+}
 
 
 

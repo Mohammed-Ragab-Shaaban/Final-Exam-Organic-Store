@@ -1,10 +1,11 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { useParams } from "react-router-dom"
 import './SingleProduct.css'
+import { HeaderStateContext } from "./Context"
 
 
-export default function SingleProduct() {
+export default function SingleGroceries() {
 
   const saleStyle ={
     backgroundColor: "var(--bgGreen)",
@@ -25,49 +26,37 @@ export default function SingleProduct() {
         left: "-10px",
         }
 
+  const {orderCount,setOrderCount,price , setPrice} = useContext(HeaderStateContext);
   const params = useParams();
   const [product , setProduct] =  useState([]);
+  const countPrice = useRef();
   
   useEffect(()=>{
       axios.get("http://localhost:1337/api/groceries-cats/"+ +params.id + "?populate=*" ).then((res)=>{
-        console.log(res.data);
-        setProduct(res.data.data);
+        console.log(res.data.data);
+        setProduct([res.data.data]);
+
       }).catch((err)=>{
-        // console.log(err.message);
+        // console.log("error");
       })
   },[])
-  console.log(product);
-// console.log(product);
-// console.log(params);
 
-// const trueFalseCondition = product.attributes.state ;
+const handleCont = ()=>{
+  setOrderCount(orderCount + +countPrice.current.value) ;
+  setPrice(price + (countPrice.current.value *product.attributes.price));
+}
+
+
+
   return (
     <div className="py-5" style={{backgroundColor:"var(--bgProducts)"}} >
-     
-      <div className="container row m-auto">
-                    <div className="col-12 col-md-6 position-relative">
-                    {/* <span style={product.attributes.state == true ? saleStyle : offStyle } >
-                          {product.attributes.state ? "sale" : "off"}
-                    </span> */}
-                   {/* <img src={"http://localhost:1337"+ product.attributes.Image.data.attributes.url} alt="product-Image" /> */}
-                 </div>
 
-                <div className="col-12 col-md-6">
-                  {/* <h2> {product.attributes.name} </h2> */}
-                  {/* <h4>£{product.attributes.price}  <span style={{fontSize:"70%",fontStyle:"italic"}}>+ Free Shipping</span></h4> */}
-                  <p>Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.</p>
-                  <input type="number" style={{width:"15%",textAlign:"center"}}/>
 
-                  <button className={ product.attributes.state ? "addToCartSale" : "addToCartOff"} 
-                    type="button"  disabled={!product.attributes.state}> 
-                    Add To Cart    
-                  </button>
-                  </div>
-              </div>
-          {/* {
-            product.map((el,index)=>{
+
+          {
+           product.map((el,index)=>{
               return(
-                <div className="container row m-auto">
+                <div key={index} className="container row m-auto">
                     <div className="col-12 col-md-6 position-relative">
                     <span style={el.attributes.state == true ? saleStyle : offStyle } >
                           {el.attributes.state ? "sale" : "off"}
@@ -79,18 +68,22 @@ export default function SingleProduct() {
                   <h2> {el.attributes.name} </h2>
                   <h4>£{el.attributes.price}  <span style={{fontSize:"70%",fontStyle:"italic"}}>+ Free Shipping</span></h4>
                   <p>Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.</p>
-                  <input type="number" style={{width:"15%",textAlign:"center"}}/>
+                  <input type="number" ref={countPrice} style={{width:"15%",textAlign:"center"}}/>
 
-                  <button className={ el.attributes.state ? "addToCartSale" : "addToCartOff"} 
+                  <button onClick={handleCont} className={ el.attributes.state ? "addToCartSale" : "addToCartOff"} 
                     type="button"  disabled={!el.attributes.state}> 
                     Add To Cart    
                   </button>
                   </div>
-              </div>
+                </div>
 
               )
             })
-          } */}
+          }
+
+      
+
+
 
     </div>
   )

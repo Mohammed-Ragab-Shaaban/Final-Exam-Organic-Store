@@ -4,19 +4,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import photo from '../../assets/Groceries/coffee-asorted.jpg'
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import Groceries from "../Groceries/Groceries";
+import Juice from "../Juice/Juice";
+import { HeaderStateContext } from "../Components/Context";
 
 export default function AllProducts() {
    
     const [groceries, setGroceries] = useState([]);
     const [juices, setjuices] = useState([]);
-
-
+    const {showSingleProduct, setShowSingleProduct} = useContext(HeaderStateContext);
+    console.log(showSingleProduct);
 
     useEffect(()=>{
         axios.get("http://localhost:1337/api/groceries-cats/?populate=*").then((res)=>{
             setGroceries(res.data.data);       
-            // console.log(res.data.data);       
+            console.log(res.data.data);       
         }).catch((err)=>{
             // console.log(err);
         })
@@ -25,7 +28,7 @@ export default function AllProducts() {
 
     useEffect(()=>{
         axios.get("http://localhost:1337/api/juices/?populate=*").then((res)=>{
-            setjuices(res.data.data);           
+            setjuices(res.data.data);     
         }).catch((err)=>{
             console.log(err);
         })
@@ -58,7 +61,7 @@ export default function AllProducts() {
         
         {/* <div></div> for showing and sorting */}
         <div className="allProduct d-flex flex-wrap gap-3 justify-content-center">
-
+            
             {
                 groceries.map((el,index)=>{
                     return(
@@ -68,11 +71,18 @@ export default function AllProducts() {
                             <span style={el.attributes.state == true ? saleStyle : offStyle } >
                                 {el.attributes.state ? "sale" : "off"}
                             </span>
-                            <Link to={"./" + el.id}><img src={"http://localhost:1337"+ el.attributes.Image.data.attributes.url} alt="product" style={{maxWidth:"100%"}}/></Link>
+
+                            <Link to={"./" + el.id}>
+                                <img src={"http://localhost:1337"+ el.attributes.Image.data.attributes.url} 
+                                    alt="product" style={{maxWidth:"100%",cursor:"pointer",}} 
+                                    onClick={()=>{setShowSingleProduct(el.attributes.category)}}/>
+                            </Link>
+                            
+                       
                         </div>
                         <div className="d-flex flex-column align-items-center">
                             <span>{el.attributes.category}</span>
-                            <Link to={"./" + el.id}><h5 className="text-center">{el.attributes.name}</h5></Link>
+                            <Link to={"./" + el.id}><h5 className="text-center" onClick={()=>{setShowSingleProduct(el.attributes.category)}}>{el.attributes.name}</h5></Link>
                             <div>
                                 <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                                 <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
@@ -87,7 +97,7 @@ export default function AllProducts() {
                 })
             }
 
-            {/* {
+            {
                 juices.map((el,index)=>{
                     return(
                         <div key={index} className="singleProduct" style={{width:"250px"}}>
@@ -96,11 +106,15 @@ export default function AllProducts() {
                             <span style={el.attributes.state == true ? saleStyle : offStyle } >
                                 {el.attributes.state ? "sale" : "off"}
                             </span>
-                            <Link to={"./" + el.id}><img src={"http://localhost:1337" + el.attributes.Image.data[0].attributes.url} alt="product" style={{maxWidth:"100%"}}/></Link>
+                            <Link to={"./" + el.id}>
+                                 <img src={"http://localhost:1337" + el.attributes.Image.data[0].attributes.url} 
+                                      alt="product" style={{maxWidth:"100%"}}
+                                      onClick={()=>{setShowSingleProduct(el.attributes.category)}}/>
+                            </Link>
                         </div>
                         <div className="d-flex flex-column align-items-center">
                             <span>{el.attributes.category}</span>
-                            <Link to={"./" + el.id}><h5 className="text-center">{el.attributes.name}</h5></Link>
+                            <Link to={"./" + el.id}><h5 onClick={()=>{setShowSingleProduct(el.attributes.category)}} className="text-center">{el.attributes.name}</h5></Link>
                             <div>
                                 <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                                 <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
@@ -113,7 +127,9 @@ export default function AllProducts() {
                     </div>
                     )
                 })
-            } */}
+            }
+
+
 
         </div>
     </div>
