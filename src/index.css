@@ -1,5 +1,24 @@
-*{
+* {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
+
+:root {
+  --transition: 0.3s;
+  --text-color: #aeaeae;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.link {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: var(--transition);
+  padding: 0;
+}
+.link:hover {
+  color: #fff;
+}
+/* End Global Components  */
