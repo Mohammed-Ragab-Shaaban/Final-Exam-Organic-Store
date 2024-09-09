@@ -9,12 +9,9 @@ import { useParams } from "react-router-dom";
 export default function TotalPrice() {
 
   const params= useParams();
-  const {orderCount,setOrderCount} = useContext(HeaderStateContext);
-  const { price , setPrice} = useContext(HeaderStateContext);
-  const [productPrice, setProductPrice] = useState([]);
+  const {TotalPrice, setTotalPrice} = useContext(HeaderStateContext);
  
-
   return (
-    <div>L.E {price}</div>
+    <div>L.E {TotalPrice}</div>
   )
 }

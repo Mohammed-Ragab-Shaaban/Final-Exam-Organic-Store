@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
 
-  const {orderCount,setOrderCount,token,setToken} = useContext(HeaderStateContext);
+  const {orderCount,setOrderCount,token,setToken,Totalcount,setTotalCount} = useContext(HeaderStateContext);
   const navToBuy = useNavigate();
   const navToLogin = useNavigate();
 
@@ -27,7 +27,7 @@ export default function Cart() {
       <div style={{color:"var(--bgGreen)",cursor:"pointer"}} >
         <FontAwesomeIcon onClick={chckToken} icon={faCartShopping}></FontAwesomeIcon>
       </div>
-        <span>{orderCount}</span>
+        <span>{Totalcount}</span>
     </div>
   )
 }

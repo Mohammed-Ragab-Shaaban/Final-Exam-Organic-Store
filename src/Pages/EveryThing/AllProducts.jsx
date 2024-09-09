@@ -11,8 +11,8 @@ import { HeaderStateContext } from "../Components/Context";
 
 export default function AllProducts() {
    
-    const [groceries, setGroceries] = useState([]);
-    const [juices, setjuices] = useState([]);
+    const {groceries, setGroceries} = useContext(HeaderStateContext);
+    const {juices, setjuices} = useContext(HeaderStateContext);
     const {showSingleProduct, setShowSingleProduct} = useContext(HeaderStateContext);
     console.log(showSingleProduct);
 

@@ -47,7 +47,7 @@ export default function SingleJuices() {
 // console.log(params);
 const handleCont = ()=>{
   setOrderCount(orderCount + +countPrice.current.value) ;
-  setPrice(price + (countPrice.current.value *product.attributes.price));
+  
 }
 
 // setOrderCount(1);
