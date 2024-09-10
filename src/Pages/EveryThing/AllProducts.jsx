@@ -14,12 +14,12 @@ export default function AllProducts() {
     const {groceries, setGroceries} = useContext(HeaderStateContext);
     const {juices, setjuices} = useContext(HeaderStateContext);
     const {showSingleProduct, setShowSingleProduct} = useContext(HeaderStateContext);
-    console.log(showSingleProduct);
+    // console.log(showSingleProduct);
 
     useEffect(()=>{
         axios.get("http://localhost:1337/api/groceries-cats/?populate=*").then((res)=>{
             setGroceries(res.data.data);       
-            console.log(res.data.data);       
+            // console.log(res.data.data);       
         }).catch((err)=>{
             // console.log(err);
         })
@@ -30,7 +30,7 @@ export default function AllProducts() {
         axios.get("http://localhost:1337/api/juices/?populate=*").then((res)=>{
             setjuices(res.data.data);     
         }).catch((err)=>{
-            console.log(err);
+            // console.log(err);
         })
 
     },[])

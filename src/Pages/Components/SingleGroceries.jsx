@@ -47,8 +47,6 @@ const finalProduCtCount = (e)=>{
 if(e.target.value < 0){
   e.target.value = 0;
 };
-
-
 }
 
 
@@ -57,49 +55,48 @@ if(e.target.value < 0){
           {
            product.map((el,index)=>{
               return(
+
                 <div key={index} className="container row m-auto">
                     <div className="col-12 col-md-6 position-relative">
-                    <span style={el.attributes.state == true ? saleStyle : offStyle } >
-                          {el.attributes.state ? "sale" : "off"}
-                    </span>
-                   <img src={"http://localhost:1337"+ el.attributes.Image.data.attributes.url} alt="product-Image" />
-                 </div>
+                      <span style={el.attributes.state == true ? saleStyle : offStyle } >
+                            {el.attributes.state ? "sale" : "off"}
+                      </span>
+                    <img src={"http://localhost:1337"+ el.attributes.Image.data.attributes.url} alt="product-Image" style={{maxWidth:"100%"}}/>
+                    </div>
 
-                <div className="col-12 col-md-6">
-                  <h2> {el.attributes.name} </h2>
-                  <h4>£{el.attributes.price}  <span style={{fontSize:"70%",fontStyle:"italic"}}>+ Free Shipping</span></h4>
-                  <p>Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.</p>
-                  <input type="number" onChange={finalProduCtCount} ref={productCount} style={{width:"15%",textAlign:"center"}} />
-
-                  <button onClick={()=>{
-                    if(productCount.current.value == "" || productCount.current.value == 0){
-                      alert("Please Select at least on piece");
-                    }else{
-                       el.count = productCount.current.value;
-                      setSelectedProduct(z => [...selectedProduct,el]);
-                      setTotalCount(cc => [Totalcount, +productCount.current.value].reduce(function(x,xx){ 
-                         x += xx
-                        return x;},0));
-                      setTotalPrice(pp => [TotalPrice, (+productCount.current.value * +el.attributes.price)].reduce(function(x,xx){
-                        x += xx;
-                        return x ;},0))
-                      console.log(TotalPrice);
-                      
-                    }
-                  }} className={ el.attributes.state ? "addToCartSale" : "addToCartOff"} 
-                          type="button"  disabled={!el.attributes.state}> 
-                          Add To Cart    
-                  </button>
-                  </div>
+                  <div className="col-12 col-md-6">
+                    <h2> {el.attributes.name} </h2>
+                    <h4>£{el.attributes.price}  <span style={{fontSize:"70%",fontStyle:"italic"}}>+ Free Shipping</span></h4>
+                    <p>Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.</p>
+                   
+                      <div className="d-flex gap-2">
+                          <input type="number" onChange={finalProduCtCount} ref={productCount} style={{width:"15%",textAlign:"center"}} />
+                          <button onClick={()=>{
+                            if(productCount.current.value == "" || productCount.current.value == 0){
+                              alert("Please Select at least on piece");
+                            }else{
+                              el.count = productCount.current.value;
+                              setSelectedProduct(z => [...selectedProduct,el]);
+                              setTotalCount(cc => [Totalcount, +productCount.current.value].reduce(function(x,xx){ 
+                                x += xx
+                                return x;},0));
+                              setTotalPrice(pp => [TotalPrice, (+productCount.current.value * +el.attributes.price)].reduce(function(x,xx){
+                                x += xx;
+                                return x ;},0))
+                              console.log(TotalPrice);
+                              
+                            }
+                          }} className={ el.attributes.state ? "addToCartSale" : "addToCartOff"} 
+                                  type="button"  disabled={!el.attributes.state}> 
+                                  Add To Cart    
+                          </button>
+                      </div>
+                    </div>
                 </div>
 
               )
             })
           }
-
-      
-
-
 
     </div>
   )

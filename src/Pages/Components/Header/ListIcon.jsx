@@ -7,8 +7,6 @@ import MenuLeft from "./Left/MenuLeft";
 
 export default function ListIcon() {
 
-    // const [sideList , setSideList] = useState(false);
-
     const {sideList, setSideList} = useContext(HeaderStateContext);
 
     const handler = ()=>{
@@ -27,7 +25,7 @@ export default function ListIcon() {
                 <FontAwesomeIcon onClick={handler} icon={faList}></FontAwesomeIcon>
             </div>
             <div className="position-relative">
-                <div className="sideMenue " style={sideList ? {right:"0px",display:"block"} : {right:"-250px",display:"none"}}>
+                <div className="sideMenue " style={sideList ? {right:"0px",display:"block",zIndex:"100"} : {right:"-250px",display:"none",zIndex:"100"}}>
                     <RightMenu dd = "d-block" />
                     <MenuLeft  cc = "d-block" />
                 </div>

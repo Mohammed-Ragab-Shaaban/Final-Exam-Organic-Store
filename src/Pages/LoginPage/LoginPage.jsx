@@ -3,6 +3,7 @@ import '../RegisterPage/RegisterPage.css'
 import axios from 'axios';
 import { HeaderStateContext } from "../Components/Context";
 import { useNavigate } from 'react-router-dom';
+import './LoginPage.css';
 
 
 
@@ -11,7 +12,7 @@ export default function RegisterPage() {
     const emailInput = useRef();
     const passInput = useRef();
     const {token,setToken} = useContext(HeaderStateContext);
-    const navigae = useNavigate();
+    const navigat = useNavigate();
 
     const handleLogin = ()=>{
         event.preventDefault();
@@ -25,22 +26,22 @@ export default function RegisterPage() {
         axios.post("http://localhost:1337/api/auth/local",obj).then((res)=>{
             localStorage.setItem("token",JSON.stringify(res.data.jwt));
             setToken(res.data.jwt);
-            navigae("/buyPage")
+            navigat("/buyPage")
         }).catch((err)=>{
             console.log("sorry")
-        })
-       
-        
-    }
+        })   
+        }
 
 
 
   return (
-    <div style={{backgroundColor:"var(--bgProducts)"}}>
-        <div className="container d-flex flex-column align-items-center py-5">
+    <div style={{backgroundColor:"var(--bgProducts)",height:"90vh"}}>
+        <div className="container d-flex flex-column align-items-center justify-content-center py-5" style={{height:"80vh"}}>
+            <div className='alert alert-warning text-center px-5'>
+                To make your purchase order you have to login first
+            </div>
             <h3>Login</h3>
             <div>
-
                 <form onClick={handleLogin} className='register' style={{width:"100%",margin:"auto"}}>
                     <div className="row gap-2 gap-md-0 mb-2">
 
@@ -62,7 +63,7 @@ export default function RegisterPage() {
                             </div>
                         </div>
                     </div>
-                    <button type='submit' className='btn btn-success'>Login</button>
+                    <button type='submit' className='btnLogin' >Login</button>
                 </form>
 
             </div>

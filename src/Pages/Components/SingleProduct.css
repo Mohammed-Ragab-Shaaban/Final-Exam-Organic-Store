@@ -1,5 +1,5 @@
 .addToCartSale{
-    margin-left: 20px;
+
     padding: 3px 70px;
     border-radius: 5px;
     background-color: var(--bgGreen);
@@ -10,7 +10,7 @@
 }
 
 .addToCartOff{
-    margin-left: 20px;
+
     padding: 3px 70px;
     border-radius: 5px;
     background-color: var(--bgDanger);
