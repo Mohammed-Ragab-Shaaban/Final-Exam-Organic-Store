@@ -1,14 +1,23 @@
 import "./About.css";
 import Footer from "../Components/Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { faCheckCircle, faStar } from "@fortawesome/free-regular-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import ImageSlider from "../Components/imageSlider/ImageSlider";
+import { Link } from "react-router-dom";
 export default function About() {
+  const slides = [
+    { url: "/src/assets/image-01.jpg", title: "img-1" },
+    { url: "/src/assets/image-02.jpg", title: "img-2" },
+    { url: "/src/assets/farming01.jpg", title: "img-3" },
+    { url: "/src/assets/farming02.jpg", title: "img-4" },
+  ];
   return (
     <div>
       <div className="section about-header-section">
         <div className="container">
           <div className="about-header-container text-center">
-            <h1>About Us</h1>
+            <h1 className="h1-header">About Us</h1>
           </div>
         </div>
       </div>
@@ -68,48 +77,44 @@ export default function About() {
       <div className="organic-quality section">
         <div className="container">
           <div className="organic-quality-content row flex-wrap flex-lg-nowrap">
-            <div className="col-12 col-lg-6 ">
+            <div className="col-12 col-lg-6 pb-4 left-box d-flex flex-column align-items-center gap-3 ">
               <div className="slider">
-                <img
-                  className="slider-img"
-                  src="/src/assets/image-01.jpg"
-                  alt=""
-                />
-                <img
-                  className="slider-img"
-                  src="/src/assets/image-02.jpg"
-                  alt=""
-                />
-                <img
-                  className="slider-img"
-                  src="/src/assets/farming01.jpg"
-                  alt=""
-                />
-                <img
-                  className="slider-img"
-                  src="/src/assets/farming02.jpg"
-                  alt=""
-                />
+                <ImageSlider slides={slides} />
               </div>
-              <div className="stars">
-                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+              <div className="stars d-flex gap-2">
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faStar}
+                ></FontAwesomeIcon>
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faStar}
+                ></FontAwesomeIcon>
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faStar}
+                ></FontAwesomeIcon>
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faStar}
+                ></FontAwesomeIcon>
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faStar}
+                ></FontAwesomeIcon>
               </div>
-              <p>
+              <p className="w-75 text-center">
                 Click edit button to change this text. Lorem ipsum dolor sit
                 amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
                 ullamcorper mattis, pulvinar dapibus leo.
               </p>
               <div>
-                <img src="/src/assets/client.png" alt="" />
+                <img className="client" src="/src/assets/client.png" alt="" />
                 <span className="ms-4">Mila Kunit</span>
               </div>
             </div>
-            <div className="col-12 col-lg-6">
-              <div className="d-flex gap-3">
+            <div className="col-12 col-lg-6 right-box d-flex gap-3 flex-column align-content-around">
+              <div className="d-flex gap-3 pt-3">
                 <div className="organic-img-container">
                   <img
                     className="organic-img"
@@ -124,6 +129,98 @@ export default function About() {
                     amet
                   </p>
                 </div>
+              </div>
+              <div>
+                <h2 className="right-box-header">
+                  We Deal With Various Quality Organic Products!
+                </h2>
+              </div>
+              <div className="pb-3">
+                <img src="/src/assets/treePaper.png" alt="treePaper picture" />
+              </div>
+              <div className="d-flex gap-5 flex-sm-row flex-column">
+                <ul className="left-list pe-5 ">
+                  <div className="icon_box">
+                    <FontAwesomeIcon
+                      className="check_icon"
+                      icon={faCheckCircle}
+                    ></FontAwesomeIcon>
+                    <li>Fresh fruits</li>
+                  </div>
+                  <div className="icon_box">
+                    <FontAwesomeIcon
+                      className="check_icon"
+                      icon={faCheckCircle}
+                    ></FontAwesomeIcon>
+                    <li>Dry fruits</li>
+                  </div>
+                  <div className="icon_box">
+                    <FontAwesomeIcon
+                      className="check_icon"
+                      icon={faCheckCircle}
+                    ></FontAwesomeIcon>
+                    <li>Fresh vegetables</li>
+                  </div>
+                  <div className="icon_box">
+                    <FontAwesomeIcon
+                      className="check_icon"
+                      icon={faCheckCircle}
+                    ></FontAwesomeIcon>
+                    <li>Dried vegetables</li>
+                  </div>
+                  <div className="icon_box">
+                    {" "}
+                    <FontAwesomeIcon
+                      className="check_icon"
+                      icon={faCheckCircle}
+                    ></FontAwesomeIcon>
+                    <li>Dried vegetables</li>
+                  </div>
+                </ul>
+                <ul className="right-list ">
+                  <div className="icon_box">
+                    <FontAwesomeIcon
+                      className="check_icon"
+                      icon={faCheckCircle}
+                    ></FontAwesomeIcon>
+                    <li>Beauty products</li>
+                  </div>
+                  <div className="icon_box">
+                    <FontAwesomeIcon
+                      className="check_icon"
+                      icon={faCheckCircle}
+                    ></FontAwesomeIcon>
+                    <li>Milk products</li>
+                  </div>
+                  <div className="icon_box">
+                    <FontAwesomeIcon
+                      className="check_icon"
+                      icon={faCheckCircle}
+                    ></FontAwesomeIcon>
+                    <li>Organic honey</li>
+                  </div>
+                  <div className="icon_box">
+                    <FontAwesomeIcon
+                      className="check_icon"
+                      icon={faCheckCircle}
+                    ></FontAwesomeIcon>
+                    <li>Organic tea</li>
+                  </div>
+                </ul>
+              </div>
+              <div className="button-container d-flex justify-content-center justify-content-lg-start">
+                <button className="btn-shopping">
+                  <Link className="cart-shopping-link" to={"#"}>
+                    <span className="d-flex gap-2">
+                      <span className="icon-shopping-wrapper">
+                        <FontAwesomeIcon
+                          icon={faCartShopping}
+                        ></FontAwesomeIcon>
+                      </span>
+                      <span> start shopping</span>
+                    </span>
+                  </Link>
+                </button>
               </div>
             </div>
           </div>

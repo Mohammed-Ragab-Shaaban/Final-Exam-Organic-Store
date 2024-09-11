@@ -16,6 +16,7 @@ import Juice from "./Pages/Juice/Juice";
 import SingleGroceries from "./Pages/Components/SingleGroceries";
 import SingleJuices from "./Pages/Components/SingleJuices";
 import About from "./Pages/About/About";
+import Contact from "./Pages/Contact/Contact";
 
 export default function App() {
   const { showSingleProduct, setShowSingleProduct } =
@@ -54,7 +55,7 @@ export default function App() {
             </Route>
 
             <Route path="/about" element={<About />}></Route>
-            <Route path="/contact" element={<h1>Contact</h1>}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
             <Route path="/login" element={<LoginPage />}></Route>
             <Route path="/register" element={<RegisterPage />}></Route>
             <Route path="/buyPage" element={<BuyPage />}></Route>
