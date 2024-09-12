@@ -1,100 +1,89 @@
+:root {
+  --textColor: #333333;
+  --lightBgGreen: #f6ffec;
+  --lightGreen: #8bc34a;
+  --lightGray: #f6f6f6;
+  --bgGreen: #6a9739;
+  --bgDanger: #ff0000;
+  --bgDarkDanger: #9f0000;
 
-:root{
-    --textColor : #333333;
-    --lightBgGreen:#f6ffec;
-    --lightGreen:#8bc34a;
-    --lightGray:#f6f6f6;
-    --bgGreen :#6a9739 ;
-    --bgDanger :#ff0000 ;
-    --bgDarkDanger :#9f0000 ;
-
-    --bgGreenDark :#5a8b25 ;
-    --white : #fff;
-    --bgProducts: #f8f6f3;
+  --bgGreenDark: #5a8b25;
+  --white: #fff;
+  --bgProducts: #f8f6f3;
 }
 
-.headerMenu{
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
+.header-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.headerMenu {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 .headerMenu li a {
-    text-decoration: none;
-    padding: 0 10px;
-    color: var(--textColor);
+  text-decoration: none;
+  padding: 0 10px;
+  color: var(--textColor);
 }
 
-.headerMenu li a:hover{
-    color: var(--lightGreen);
+.headerMenu li a:hover {
+  color: var(--lightGreen);
 }
-
 
 /* start the side Menue */
-.sideMenue{
-    width: 250px;
-    height: 100vh;
-    position: absolute;
-    top: 50px;
-    transition: all .5s;
-    background-color: var(--lightGray);
+.sideMenue {
+  width: 250px;
+  height: 100vh;
+  position: absolute;
+  top: 50px;
+  transition: all 0.5s;
+  background-color: var(--lightGray);
 }
-
 
 /*End the side Menue */
 
-a{
-    display: inline-block;
+a {
+  display: inline-block;
 }
 
+@media only screen and (max-width: 767px) {
+  .headerMenu li {
+    border-bottom: 1px solid #ddd;
+  }
 
-@media only screen and (max-width: 767px){
-    .headerMenu li {
-        border-bottom: 1px solid #ddd;
-    }
-
-    .headerMenu li:hover{
-        background-color: var(--lightBgGreen)
-    }
+  .headerMenu li:hover {
+    background-color: var(--lightBgGreen);
+  }
 }
 
-
-.shopnowBtn{
-    padding: 15px 30px;
-    background-color: var(--bgGreen);
-    color: var(--white);
-    border-radius: 5px;
-    text-decoration: none;
-    transition: all .5s;
+.shopnowBtn {
+  padding: 15px 30px;
+  background-color: var(--bgGreen);
+  color: var(--white);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.5s;
 }
 
-.shopnowBtn:hover{
-background-color: var(--bgGreenDark);
+.shopnowBtn:hover {
+  background-color: var(--bgGreenDark);
 }
 
-.btnsty{
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 0px 2px;
+.btnsty {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 0px 2px;
 }
 
-.btnsty:hover{
-    background-color: var(--bgGreen);
-    color: var(--white);
-  
+.btnsty:hover {
+  background-color: var(--bgGreen);
+  color: var(--white);
 }
-.btnsty:hover a{
-    color: var(--white);
-
+.btnsty:hover a {
+  color: var(--white);
 }
-
-
-
-
-
-
-
-
-
-
-

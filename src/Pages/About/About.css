@@ -5,7 +5,7 @@
 /* Start About Description Section  */
 .about-header-section {
   background-color: #f8f6f3;
-  height: 30vh;
+  height: 50vh;
 }
 .h1-header {
   line-height: 8rem;
@@ -114,10 +114,19 @@
 
 /* Media Mobile */
 @media screen and (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
   .desc-img {
     left: 7rem;
   }
   .h1-header {
     font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 165px) {
+  html {
+    font-size: 6px;
   }
 }

@@ -9,6 +9,17 @@
   --transition: 0.3s;
   --text-color: #aeaeae;
   --green-color: #8bc34a;
+  --textColor: #333333;
+  --lightBgGreen: #f6ffec;
+  --lightGreen: #8bc34a;
+  --lightGray: #f6f6f6;
+  --bgGreen: #6a9739;
+  --bgDanger: #ff0000;
+  --bgDarkDanger: #9f0000;
+
+  --bgGreenDark: #5a8b25;
+  --white: #fff;
+  --bgProducts: #f8f6f3;
 }
 Link {
   text-decoration: none;

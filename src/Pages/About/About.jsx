@@ -15,8 +15,8 @@ export default function About() {
   return (
     <div>
       <div className="section about-header-section">
-        <div className="container">
-          <div className="about-header-container text-center">
+        <div className="container h-100">
+          <div className="about-header-container h-100 d-flex justify-content-center align-items-center">
             <h1 className="h1-header">About Us</h1>
           </div>
         </div>
