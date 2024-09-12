@@ -50,7 +50,7 @@ setTotalPrice(pp => p);
         <div className="container py-4">
           <h3 className="text-center mb-3">Selected Products</h3>
 
-            <div>
+            <div style={{overflow:"auto"}}>
             <table className="table table-secondary">
                       <thead>
                         <tr>
@@ -62,7 +62,7 @@ setTotalPrice(pp => p);
                           <th>Delete</th>
                         </tr>
                       </thead>
-                      <tbody>
+              <tbody>
               {
                 selectedProduct.map((el,index)=>{
                   return(

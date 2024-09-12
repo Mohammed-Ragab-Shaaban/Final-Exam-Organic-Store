@@ -2,7 +2,7 @@ import { useContext, useRef } from 'react'
 import '../RegisterPage/RegisterPage.css'
 import axios from 'axios';
 import { HeaderStateContext } from "../Components/Context";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
 
@@ -43,7 +43,7 @@ export default function RegisterPage() {
             <h3>Login</h3>
             <div>
                 <form onClick={handleLogin} className='register' style={{width:"100%",margin:"auto"}}>
-                    <div className="row gap-2 gap-md-0 mb-2">
+                    <div className="row gap-2 gap-md-0 mb-2 justify-content-center">
 
                         <div className="col-12 row">
                             <div className='col-12'>
@@ -63,7 +63,12 @@ export default function RegisterPage() {
                             </div>
                         </div>
                     </div>
-                    <button type='submit' className='btnLogin' >Login</button>
+                    <div style={{width:"92%",margin:"auto"}}>
+                    <div className='d-flex justify-content-between'>
+                        <button type='submit' className='btnLogin' >Login</button>
+                        <Link to={'/register'}>Create account</Link>
+                    </div>
+                    </div>
                 </form>
 
             </div>

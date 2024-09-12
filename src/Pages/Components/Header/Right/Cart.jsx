@@ -15,12 +15,13 @@ export default function Cart() {
 
   const chckToken =()=>{
     let tok = JSON.parse(localStorage.getItem("token"));
-    if(tok && tok == token){
+    if(tok){
       navToBuy("/buyPage")
     }else{
       navToLogin("/login");
     }
   }
+  console.log(token)
 
   const btnBuyStyle = {
     border: "none",
