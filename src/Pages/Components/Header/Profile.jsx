@@ -8,10 +8,12 @@ import { createRoot } from "react-dom/client";
 
 export default function Profile(props) {
 
-    const {sideList, setSideList} = useContext(HeaderStateContext);
+    const {sideList, setSideList,ren , setRen} = useContext(HeaderStateContext);
     const [profileStatus , setProfileStatus] = useState(false);
-    const [ren , setRen] = useReducer(x => x+1 ,0);
+    // const [ren , setRen] = useReducer(x => x + 1 , 0);
+    // const [ren , setRen] = useReducer(x => x + 1 , 0);
     // const [tokenStatus , setTokenStatus] = useState(false);
+
 
     // const removeToken = ()=>{
     //     if(tokenStatus){

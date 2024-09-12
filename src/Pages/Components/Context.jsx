@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer, useState } from "react";
 
 
 
@@ -17,6 +17,7 @@ const HeaderStateProviderContext = ({children})=>{
     const [Totalcount,setTotalCount] = useState(0);
     const [groceries, setGroceries] = useState([]);
     const [juices, setjuices] = useState([]);
+    const [ren , setRen] = useReducer(x => x + 1 , 0);
 
 
     return(
@@ -25,7 +26,7 @@ const HeaderStateProviderContext = ({children})=>{
              setPrice ,token,setToken,showSingleProduct,
               setShowSingleProduct,selectedProduct, setSelectedProduct,
               TotalPrice, setTotalPrice,Totalcount,setTotalCount,
-              groceries, setGroceries,juices, setjuices}
+              groceries, setGroceries,juices, setjuices , ren , setRen}
         }>
             {children}
         </HeaderStateContext.Provider>

@@ -1,7 +1,7 @@
 import paypal from '../../assets/paypal.png'
 import payneer from '../../assets/payoneer.png'
 import MasterCard from '../../assets/masterCard.png'
-import { useContext, useState } from 'react';
+import { useContext, useReducer, useState } from 'react';
 import { HeaderStateContext } from './Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faDeleteLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -13,12 +13,13 @@ export default function BuyPage() {
   const { TotalPrice, setTotalPrice} = useContext(HeaderStateContext);
   const {Totalcount,setTotalCount} = useContext(HeaderStateContext);
 
-  const {selectedProduct, setSelectedProduct} = useContext(HeaderStateContext);
-  console.log(selectedProduct);
+  const {selectedProduct, setSelectedProduct,ren , setRen} = useContext(HeaderStateContext);
+  // const [ren , setRen] = useReducer(x => x +1 , 0);
 
 
 const deleteProduct = (index) =>{
   selectedProduct.splice(index, 1);
+  setRen();
 }
 
   // map to get total count of orders
