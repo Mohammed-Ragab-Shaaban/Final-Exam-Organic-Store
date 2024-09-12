@@ -15,7 +15,6 @@ export default function Header() {
           </div>
               <Profile P_LogOut = "d-none" />
       </div>
-      <div></div>
     </div>
   )
 }
